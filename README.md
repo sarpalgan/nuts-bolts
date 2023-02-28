@@ -38,15 +38,17 @@
 
 *3. Make detection with one of the following code:*
 
+- *replace:* `path/to/detection/file` *with*  `/content/challenge/images/test/test.mp4` *to make detection on test.mp4 file* 
+
 ```bash
 # Detect with PyTorch
-!python detect.py --name pt --weights best.pt --source /content/challenge/images/test/test.mp4 --data data/custom.yaml  
+!python detect.py --name pt --weights best.pt --source path/to/detection/file --data data/custom.yaml  
 
 # Detect with ONNX
-!python detect.py --name onnx --weights best.onnx --source /content/challenge/images/test/test.mp4 --data data/custom.yaml  
+!python detect.py --name onnx --weights best.onnx --source path/to/detection/file --data data/custom.yaml  
 
 #Detect with TensorRT
-!python detect.py --name engine --weights best.engine --source /content/challenge/images/test/test.mp4 --data data/custom.yaml    
+!python detect.py --name engine --weights best.engine --source path/to/detection/file --data data/custom.yaml    
 ```
 
 *4. Results will be saved into `runs/detect/model.extension`* 
