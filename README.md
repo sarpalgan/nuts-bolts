@@ -6,7 +6,7 @@
 
 ## 2. Detection
 
-**How to use:**
+**How to use in Colab:**
 
 *1. Clone the required repositories, install required packages and download pretrained weights:*
 
