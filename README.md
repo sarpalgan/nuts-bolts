@@ -51,7 +51,7 @@
 !python detect.py --name engine --weights best.engine --source path/to/detection/file --data data/custom.yaml    
 ```
 
-*4. Results will be saved into `runs/detect/model.extension`* 
+*4. Results will be saved into `./yolov5/runs/detect/model.extension`* 
 
 `model.extension`
 - `pt`   *(PyTorch)*
