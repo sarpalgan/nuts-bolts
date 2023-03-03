@@ -20,9 +20,7 @@
 !pip install -r requirements.txt
 !pip install -r requirements.txt coremltools onnx onnx-simplifier onnxruntime openvino-dev tensorflow-cpu nvidia-tensorrt
 !pip install onnxruntime-gpu
-!wget https://github.com/sarpalgan/nuts-bolts/releases/download/v1.0.0/weights.zip
-!unzip weights.zip
-!rm weights.zip
+!wget https://github.com/sarpalgan/nuts-bolts/releases/download/v1.0.0/best.pt
 
 %cd data
 !wget https://github.com/sarpalgan/nuts-bolts/releases/download/v1.0.0/custom.yaml
@@ -33,7 +31,7 @@
 *2. Run the following code to export best.py PyTorch model to ONNX and TensorRT formats:*
 
 ```bash
-!python export.py --device 0 --weights best.pt --include engine --data data/data.yaml --conf-thres 0.1
+!python export.py --device 0 --weights best.pt --include engine --data data/data.yaml
 ```
 
 *3. Make detection with one of the following code:*
@@ -42,13 +40,19 @@
 
 ```bash
 # Detect with PyTorch
-!python detect.py --name pt --weights best.pt --source path/to/detection/file --data data/custom.yaml  
+!python detect.py --name pt --weights best.pt \
+                  --source /content/challenge/images/test/test.mp4 \
+                  --data data/custom.yaml --conf-thres 0.85
 
 # Detect with ONNX
-!python detect.py --name onnx --weights best.onnx --source path/to/detection/file --data data/custom.yaml  
+!python detect.py --name onnx --weights best.onnx \
+                  --source /content/challenge/images/test/test.mp4 \
+                  --data data/custom.yaml --conf-thres 0.85      
 
 #Detect with TensorRT
-!python detect.py --name engine --weights best.engine --source path/to/detection/file --data data/custom.yaml    
+!python detect.py --name engine --weights best.engine \
+                  --source /content/challenge/images/test/test.mp4 \
+                  --data data/custom.yaml --conf-thres 0.85 --device 0   
 ```
 
 *4. Results will be saved into `./yolov5/runs/detect/model.extension`* 
