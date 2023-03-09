@@ -36,7 +36,6 @@
 
 *3. Make detection with one of the following code:*
 
-- *replace:* `path/to/detection/file` *with*  `/content/challenge/images/test/test.mp4` *to make detection on test.mp4 file* 
 
 ```bash
 # Detect with PyTorch
